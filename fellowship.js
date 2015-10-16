@@ -63,7 +63,7 @@ var fellowship = {
     var buddyListSelect = document.querySelector("#ourBuddies");
     buddyListSelect.appendChild(buddyList);
 
-    for (var b = 0; b < fellowship.hobbits.length; b++) {
+    for (var b = 0; b < fellowship.buddies.length; b++) {
       var newBuddy = document.createElement("li");
       newBuddy.setAttribute("class", "buddy");
       newBuddy.innerHTML = fellowship.buddies[b];
@@ -77,10 +77,42 @@ var fellowship = {
   },
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
-    
+    var theShire = document.querySelector(".Shire");
+    var rivendell = document.querySelector(".Rivendell");
+
+    var theHobbits = document.querySelector("ul");
+    var theBuddies = document.querySelectorAll("ul")[1];
+
+    theShire.removeChild(theHobbits);
+    rivendell.appendChild(theHobbits);
+    rivendell.appendChild(theBuddies);
+
     // create a new div called 'the-fellowship'
+    var theFellowship = document.createElement("div");
+    theFellowship.setAttribute("id", "the-fellowship");
+    theFellowship.innerHTML = "The Fellowship of the Ring";
+    rivendell.appendChild(theFellowship);
+
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
+    var selectTheFellowship = document.querySelector('#the-fellowship');
+    for (var h = 0; h < fellowship.hobbits.length; h++) {
+      var newHobbit = document.createElement("p");
+      // give each hobbit a class of hobbit
+      newHobbit.setAttribute("class", "hobbit");
+      newHobbit.innerHTML = fellowship.hobbits[h];
+      selectTheFellowship.appendChild(newHobbit);
+      alert(fellowship.hobbits[h] + " has joined the Fellowship of the Ring");
+    }
+
+    for (var b = 0; b < fellowship.buddies.length; b++) {
+      var newBuddy = document.createElement("p");
+      // give each hobbit a class of hobbit
+      newBuddy.setAttribute("class", "buddy");
+      newBuddy.innerHTML = fellowship.buddies[b];
+      selectTheFellowship.appendChild(newBuddy);
+      alert(fellowship.buddies[b] + " has joined the Fellowship of the Ring");
+    }
   }
 }
 
@@ -90,5 +122,6 @@ fellowship.makeHobbits(fellowship.hobbits);
 fellowship.keepItSecretKeepItSafe();
 fellowship.makeBuddies(fellowship.buddies);
 fellowship.beautifulStranger();
+fellowship.forgeTheFellowShip();
 
 //Fix adding class based on land names (<article>)
