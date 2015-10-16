@@ -1,4 +1,5 @@
 // Dramatis Personae
+
 var fellowship = {
   hobbits: [
     "Frodo Baggins",
@@ -17,19 +18,33 @@ var fellowship = {
     "The Shire", "Rivendell", "Mordor"
   ],
   makeMiddleEarth: function(lands) {
-    console.log(lands)
-    // create a section tag with an id of middle-earth
-    // add each land as an article tag
-    // inside each article tag include an h1 with the name of the land
-    // append middle-earth to your document body
+    var middleEarth = document.createElement("section");
+    middleEarth.setAttribute("id", "middle-earth");
+    for (var i=0; i < fellowship.lands.length; i++){
+      console.log(fellowship.lands[i]);
+      var newTag = document.createElement("article");
+      var newLand = document.createElement("h1");
+      newLand.textContent = fellowship.lands[i];
+      newTag.appendChild(newLand);
+      middleEarth.appendChild(newTag);
+    }
+    document.body.appendChild(middleEarth);
+
   },
   makeHobbits: function(hobbits) {
-    // display an unordered list of hobbits in the shire
-    // give each hobbit a class of hobbit
+    var hobbitList = document.createElement("ul");
+    for (var i=0; i<fellowship.hobbits.length; i++){
+      console.log(fellowship.hobbits[i]);
+      var newHobbit = document.createElement("li");
+      newHobbit.textContent = hobbits[i];
+      hobbitList.appendChild(newHobbit);
+    }
+    document.getElementById("middle-earth").firstChild.appendChild(hobbitList);
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
     // add the ring as a child of Frodo
+
   },
   makeBuddies: function(buddies) {
     // create an aside tag
