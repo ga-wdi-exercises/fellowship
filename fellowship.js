@@ -19,12 +19,24 @@ var fellowship = {
   makeMiddleEarth: function(lands) {
     console.log(lands)
     // create a section tag with an id of middle-earth
+        var middleEarth = document.createElement("section");
     // add each land as an article tag
+    var theShire = document.createElement("article")
+    var Rivendell = document.createElement("article")
+    var Mordor = document.createElement("article")
     // inside each article tag include an h1 with the name of the land
     // append middle-earth to your document body
+    var h1 = document.createElement("h1")
+      theShire.appendChild(h1);
+        document.getElementsByTagName("h1").innerHTML =fellowship.lands[0];
+      Rivendell.appendChild(h1);
+        document.getElementsByTagName("h1").innerHTML =fellowship.lands[1];
+      Mordor.appendChild(h1);
+        document.getElementsByTagName("h1").innerHTML =fellowship.lands[2];
   },
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
+    fellowship.hobbits;
     // give each hobbit a class of hobbit
   },
   keepItSecretKeepItSafe: function() {
