@@ -40,6 +40,7 @@ var fellowship = {
     hobbitList.setAttribute("id", "hobbit-list");
     for (var i=0; i<fellowship.hobbits.length; i++){
       var newHobbit = document.createElement("li");
+      newHobbit.setAttribute("class", "hobbit");
       newHobbit.textContent = hobbits[i];
       newHobbit.setAttribute("id",hobbits[i]);
       hobbitList.appendChild(newHobbit);
