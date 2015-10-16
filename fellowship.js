@@ -18,6 +18,8 @@ var fellowship = {
     "The Shire", "Rivendell", "Mordor"
   ],
   makeMiddleEarth: function(lands) {
+
+    //create middle earth, set id, add lands to it
     var middleEarth = document.createElement("section");
     middleEarth.setAttribute("id", "middle-earth");
     for (var i=0; i < fellowship.lands.length; i++){
@@ -28,10 +30,12 @@ var fellowship = {
       newTag.appendChild(newLand);
       middleEarth.appendChild(newTag);
     }
+    //attach middle earth
     document.body.appendChild(middleEarth);
 
   },
   makeHobbits: function(hobbits) {
+    //create and add hobbits to ul
     var hobbitList = document.createElement("ul");
     hobbitList.setAttribute("id", "hobbit-list");
     for (var i=0; i<fellowship.hobbits.length; i++){
@@ -40,14 +44,17 @@ var fellowship = {
       newHobbit.setAttribute("id",hobbits[i]);
       hobbitList.appendChild(newHobbit);
     }
+    //append hobbits to shire
     document.getElementById("middle-earth").firstChild.appendChild(hobbitList);
   },
   keepItSecretKeepItSafe: function() {
+    //add ring as child of frodo li
     var ring = document.createElement("div");
     ring.setAttribute("id", "the-ring");
     document.getElementById("Frodo Baggins").appendChild(ring);
   },
   makeBuddies: function(buddies) {
+    //create and add buddies to ul
     var newAside = document.createElement("aside");
     newAside.setAttribute("id", "bud-aside");
     var buddyList = document.createElement("ul");
@@ -60,9 +67,11 @@ var fellowship = {
     }
     newAside.appendChild(buddyList);
     var middleEarth = document.getElementById("middle-earth");
+    //insert buddies before rivendell
     middleEarth.insertBefore(newAside, middleEarth.childNodes[1] );
   },
   beautifulStranger: function() {
+    //change buddy strider's text content
     document.getElementById("Strider").textContent = "Aragorn";
   },
   forgeTheFellowShip: function() {
