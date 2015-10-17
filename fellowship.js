@@ -1,28 +1,42 @@
 // Dramatis Personae
-var fellowship = {
-  hobbits: [
+
+var  hobbits: [
     "Frodo Baggins",
     "Samwise 'Sam' Gamgee",
     "Meriadoc \"Merry\" Brandybuck",
     "Peregrin 'Pippin' Took"
-  ],
-  buddies: [
+  ]
+var  buddies: [
     "Gandalf the Grey",
     "Legolas",
     "Gimli",
     "Strider",
     "Boromir"
-  ],
-  lands: [
+  ]
+var lands: [
     "The Shire", "Rivendell", "Mordor"
-  ],
-  makeMiddleEarth: function(lands) {
-    console.log(lands)
+  ]
+function  makeMiddleEarth(lands){
+    console.log(lands);
+    var mid=document.createElement('section');
+    mid.setAttribute('class','test');
+    mid.setAttribute('id','middle-earth');
+    for (var i = 0; i <= lands.length; i+=1){
+      var art = document.createElement('article');
+      var land = document.createElement('h1');
+      land.innerHTML=lands[i];
+      art.appendTo(land);
+      mid.appendTo(art);
+    }
+    body.appendTo(mid);
+  }
+
+
     // create a section tag with an id of middle-earth
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
     // append middle-earth to your document body
-  },
+
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
