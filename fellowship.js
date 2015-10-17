@@ -64,9 +64,9 @@ var fellowship = {
     ourBuddies.setAttribute("id", "theBuddies");
 
     // insert your aside before rivendell
-    var rivendell = document.querySelector("#middle-earth");
-    var beforeRivendell = document.querySelector(".rivendell");
-    rivendell.insertBefore(ourBuddies, beforeRivendell);
+    var middleEarth = document.querySelector("#middle-earth");
+    var rivendell = document.querySelector(".rivendell");
+    middleEarth.insertBefore(ourBuddies, rivendell);
 
     // display an unordered list of buddies in the aside
     var buddyList = document.createElement("ul");
@@ -106,7 +106,6 @@ var fellowship = {
     var addToFellowship = function(category) {
       for (var i = 0; i < fellowship[category].length; i++) {
         var newFellow = document.createElement("p");
-        // give each hobbit a class of hobbit
         newFellow.setAttribute("class", category);
         newFellow.innerHTML = fellowship[category][i];
         selectTheFellowship.appendChild(newFellow);
