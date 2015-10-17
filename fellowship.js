@@ -17,23 +17,32 @@ var fellowship = {
     "The Shire", "Rivendell", "Mordor"
   ],
   makeMiddleEarth: function(lands) {
-    var newSection = document.querySelector("#middle-earth");
-    // add each land as an article tag
-    for(var i = 0; i < fellowship.lands.length; i++) {
+    var middleEarth = document.querySelector("#middle-earth");
+
+    for (var i = 0; i < fellowship.lands.length; i++) {
+      var landName = fellowship.lands[i];
+
+      // add each land as an article tag and add a class with landName
       var newLand = document.createElement("article");
-      // inside each article tag include an h1 with the name of the land
-      newLand.setAttribute("class", fellowship.lands[i]);
-      newLand.innerHTML = "<h1>" + fellowship.lands[i] + "</h2>";
-      newSection.appendChild(newLand);
+      var landNameClass = landName.toLowerCase().replace(" ", "");
+      newLand.setAttribute("class", landNameClass);
+
+      // inside each article tag include an h1 with landName
+      newLand.innerHTML = "<h1>" + landName + "</h1>";
+      middleEarth.appendChild(newLand);
     }
   },
   makeHobbits: function(hobbits) {
-    var theShire = document.querySelector(".Shire");
+    var theShire = document.querySelector(".theshire");
+
     // display an unordered list of hobbits in the shire
     var hobbitList = document.createElement("ul");
+    hobbitList.setAttribute("id", "theHobbits");
     theShire.appendChild(hobbitList);
+
     for (var h = 0; h < fellowship.hobbits.length; h++) {
       var newHobbit = document.createElement("li");
+
       // give each hobbit a class of hobbit
       newHobbit.setAttribute("class", "hobbit");
       newHobbit.innerHTML = fellowship.hobbits[h];
@@ -44,6 +53,7 @@ var fellowship = {
     // create a div with an id of 'the-ring'
     var theOneRing = document.createElement("div");
     theOneRing.setAttribute("id", "the-ring");
+
     // add the ring as a child of Frodo
     var frodo = document.querySelector("li");
     frodo.appendChild(theOneRing);
@@ -51,17 +61,16 @@ var fellowship = {
   makeBuddies: function(buddies) {
     // create an aside tag
     var ourBuddies = document.createElement("aside");
-    ourBuddies.setAttribute("id", "ourBuddies");
+    ourBuddies.setAttribute("id", "theBuddies");
 
     // insert your aside before rivendell
-    var rivendell = document.querySelector(".Rivendell");
-    var beforeRivendell = document.querySelectorAll("h1")[1];
+    var rivendell = document.querySelector("#middle-earth");
+    var beforeRivendell = document.querySelector(".rivendell");
     rivendell.insertBefore(ourBuddies, beforeRivendell);
 
     // display an unordered list of buddies in the aside
     var buddyList = document.createElement("ul");
-    var buddyListSelect = document.querySelector("#ourBuddies");
-    buddyListSelect.appendChild(buddyList);
+    ourBuddies.appendChild(buddyList);
 
     for (var b = 0; b < fellowship.buddies.length; b++) {
       var newBuddy = document.createElement("li");
@@ -77,51 +86,43 @@ var fellowship = {
   },
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
-    var theShire = document.querySelector(".Shire");
-    var rivendell = document.querySelector(".Rivendell");
+    var rivendell = document.querySelector(".rivendell");
+    var theHobbits = document.querySelector("#theHobbits");
+    var theBuddies = document.querySelector("#theBuddies");
 
-    var theHobbits = document.querySelector("ul");
-    var theBuddies = document.querySelectorAll("ul")[1];
-
-    theShire.removeChild(theHobbits);
     rivendell.appendChild(theHobbits);
     rivendell.appendChild(theBuddies);
 
     // create a new div called 'the-fellowship'
     var theFellowship = document.createElement("div");
     theFellowship.setAttribute("id", "the-fellowship");
-    theFellowship.innerHTML = "The Fellowship of the Ring";
+    theFellowship.innerHTML = "<h2>The Fellowship of the Ring</h2>";
     rivendell.appendChild(theFellowship);
 
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
     var selectTheFellowship = document.querySelector('#the-fellowship');
-    for (var h = 0; h < fellowship.hobbits.length; h++) {
-      var newHobbit = document.createElement("p");
-      // give each hobbit a class of hobbit
-      newHobbit.setAttribute("class", "hobbit");
-      newHobbit.innerHTML = fellowship.hobbits[h];
-      selectTheFellowship.appendChild(newHobbit);
-      alert(fellowship.hobbits[h] + " has joined the Fellowship of the Ring");
+
+    var addToFellowship = function(category) {
+      for (var i = 0; i < fellowship[category].length; i++) {
+        var newFellow = document.createElement("p");
+        // give each hobbit a class of hobbit
+        newFellow.setAttribute("class", category);
+        newFellow.innerHTML = fellowship[category][i];
+        selectTheFellowship.appendChild(newFellow);
+        alert(fellowship[category][i] + " has joined the Fellowship of the Ring");
+      }
     }
 
-    for (var b = 0; b < fellowship.buddies.length; b++) {
-      var newBuddy = document.createElement("p");
-      // give each hobbit a class of hobbit
-      newBuddy.setAttribute("class", "buddy");
-      newBuddy.innerHTML = fellowship.buddies[b];
-      selectTheFellowship.appendChild(newBuddy);
-      alert(fellowship.buddies[b] + " has joined the Fellowship of the Ring");
-    }
+    addToFellowship("hobbits");
+    addToFellowship("buddies");
   }
 }
 
-// Automatically run functions
+// Comment/Uncomment to automatically run functions
 fellowship.makeMiddleEarth(fellowship.lands);
 fellowship.makeHobbits(fellowship.hobbits);
 fellowship.keepItSecretKeepItSafe();
 fellowship.makeBuddies(fellowship.buddies);
 fellowship.beautifulStranger();
 fellowship.forgeTheFellowShip();
-
-//Fix adding class based on land names (<article>)
