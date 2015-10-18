@@ -39,17 +39,28 @@ var fellowship = {
       landsNode.appendChild(landsTextNode);
       document.getElementById("middle_earth").appendChild(landsNode);
     }
-
-    // create a section tag with an id of middle-earth
-    // add each land as an article tag
-    // inside each article tag include an h1 with the name of the land
-    // append middle-earth to your document body
   },
   makeHobbits: function(hobbits) {
+    console.log(hobbits);
+    var hobbitTitleNode = document.createElement("ul");
+    var hobbitTitle = document.createTextNode("Callin all the hobbits");
+    hobbitTitleNode.appendChild(hobbitTitle);
+    document.getElementById("middle_earth").appendChild(hobbitTitleNode);
+    for(var i=0; i<fellowship.hobbits.length; i++){
+      var fellowshipHobbits = fellowship.hobbits[i];
+      var hobbitsNode = document.createElement("li");
+      var hobbitsThing = document.getElementById("middle_earth", "ul").classList.add(i);
+      var hobbitsTextNode = document.createTextNode(fellowshipHobbits);
+      hobbitsNode.appendChild(hobbitsTextNode);
+
+      document.getElementById("middle_earth").appendChild(hobbitsNode);
+    }
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
   },
   keepItSecretKeepItSafe: function() {
+    var theRing = document.getElementById("middle_earth").classList.add("the-ring") ;
+    document.getElementsByClassName("Frodo Baggins")
     // create a div with an id of 'the-ring'
     // add the ring as a child of Frodo
   },
