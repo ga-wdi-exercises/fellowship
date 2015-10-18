@@ -1,3 +1,5 @@
+'use strict'
+
 // Dramatis Personae
 var fellowship = {
   hobbits: [
