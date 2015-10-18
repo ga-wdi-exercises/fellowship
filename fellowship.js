@@ -37,6 +37,14 @@ var fellowship = {
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
+    var ul = document.createElement("ul");
+      for (var i = 0; i < fellowship.hobbits.length; i++) {
+      var li = document.createElement("li");
+      li.setAttribute("class", "hobbit")
+      li.textContent = fellowship.hobbits[i];
+      ul.appendChild(li);
+    }
+    document.body.appendChild(ul);
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
