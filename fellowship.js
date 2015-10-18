@@ -62,15 +62,15 @@ var fellowship = {
     // insert your aside before rivendell
     var aside = document.createElement("aside");
     var ul = document.createElement("ul");
-    for (var i = 0; i < fellowship.buddies[i]; i++) {
+    for (var i = 0; i < fellowship.buddies.length; i++) {
       var li = document.createElement("li");
       li.textContent = fellowship.buddies[i];
-      ul.appendChild(li)
+      ul.appendChild(li);
     }
     aside.appendChild(ul);
     var parentArticle = document.querySelectorAll("article")[1];
     var rivendell = document.querySelectorAll("h1")[1];
-    parentArticle.insertBefore(aside, rivendell);
+    rivendell.parentNode.insertBefore(aside, rivendell);
 
   },
   beautifulStranger: function() {
