@@ -1,21 +1,24 @@
 // Dramatis Personae
-var fellowship = {
-  hobbits: [
-    "Frodo Baggins",
-    "Samwise 'Sam' Gamgee",
-    "Meriadoc \"Merry\" Brandybuck",
-    "Peregrin 'Pippin' Took"
-  ],
-  buddies: [
-    "Gandalf the Grey",
-    "Legolas",
-    "Gimli",
-    "Strider",
-    "Boromir"
-  ],
-  lands: [
-    "The Shire", "Rivendell", "Mordor"
-  ],
+
+//something is wrong with this array. commenting out solves issue with middleEarth function.
+
+// var fellowship = {
+//   hobbits: [
+//     "Frodo Baggins",
+//     "Samwise 'Sam' Gamgee",
+//     "Meriadoc \"Merry\" Brandybuck",
+//     "Peregrin 'Pippin' Took"
+//   ],
+//   buddies: [
+//     "Gandalf the Grey",
+//     "Legolas",
+//     "Gimli",
+//     "Strider",
+//     "Boromir"
+//   ],
+//   lands: [
+//     "The Shire", "Rivendell", "Mordor"
+//   ],
 
 // need to revise function syntax for all the pre-written functions
   function makeMiddleEarth(lands) {
@@ -41,10 +44,22 @@ var fellowship = {
   makeMiddleEarth(lands);
 console.log(lands);
 
-//   makeHobbits: function(hobbits) {
-//     // display an unordered list of hobbits in the shire
-//     // give each hobbit a class of hobbit
-//   },
+   function makeHobbits(hobbits) {
+     // display an unordered list of hobbits in the shire
+     // give each hobbit a class of hobbit
+    var listHobbits = document.createElement('ul');
+    for (var i = 0; i < hobbits.length; i++) {
+      var hobbit = document.createElement("li");
+      hobbit.innerHTML = hobbits[i];
+      hobbit.className = "hobbit";
+      listHobbits.appendChild(hobbit)
+    }
+    var shire = document.getElementbyTagName("article")[0];
+    shire.appendChild(listHobbits)
+   }
+   makeHobbits(hobbits);
+
+
 //   keepItSecretKeepItSafe: function() {
 //     // create a div with an id of 'the-ring'
 //     // add the ring as a child of Frodo
