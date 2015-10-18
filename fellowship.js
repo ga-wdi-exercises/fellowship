@@ -18,10 +18,10 @@ var fellowship = {
   ],
   makeMiddleEarth: function(lands) {
     console.log(lands)
-    // create a section tag with an id of middle-earth
-    // add each land as an article tag
-    // inside each article tag include an h1 with the name of the land
-    // append middle-earth to your document body
+      // create a section tag with an id of middle-earth
+      // add each land as an article tag
+      // inside each article tag include an h1 with the name of the land
+      // append middle-earth to your document body
   },
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
@@ -42,6 +42,7 @@ var fellowship = {
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
     // create a new div called 'the-fellowship'
+    var div = document.createElement('the-fellowship');
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
   }
