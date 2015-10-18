@@ -19,28 +19,48 @@ var fellowship = {
 
   makeMiddleEarth: function(lands) {
     var middleEarth = document.createElement('section');
-      middleEarth.id = "middle-earth"
-      for (var i = 0; i < lands.length; i++){
-        var articleTag = document.createElement('article');
-        var h1Tag = document.createElement('h1');
-        var h1Tag = 
-      }
-      }
-      // inside each article tag include an h1 with the name of the land
+    middleEarth.id = "middle-earth"
+    for (var i = 0; i < lands.length; i++) {
+      var articleTag = document.createElement('article');
+      var h1Tag = document.createElement('h1');
+      h1Tag.textContent = lands[i];
+      articleTag.appendChild(h1Tag);
+      middleEarth.appendChild(articleTag);
+    }
+    document.body.appendChild(middleEarth);
+  }
+  makeMiddleEarth(lands);
 
-      // append middle-earth to your document body
-  },
+
   makeHobbits: function(hobbits) {
-    // display an unordered list of hobbits in the shire
-    // give each hobbit a class of hobbit
-  },
+    var hobbitsList = document.createElement('ul')
+      // display an unordered list of hobbits in the shire
+    for (var i=0;  i< hobbits.length; i++){
+      // give each hobbit a class of hobbit
+      var hobbit = document.createElement('li');
+      hobbit.className = "hobbit";
+      hobbitsList.appendChild(hobbit)
+  }
+  var shire =document.getElementsByTagName('article') [0];
+  shire.appendChild(hobbitsList);
+}
+makeHobbits (hibbits);
+
+
   keepItSecretKeepItSafe: function() {
-    // create a div with an id of 'the-ring'
-    // add the ring as a child of Frodo
-  },
+  
+var ring = document.createElement('div');
+ring.id ="the-ring";
+    var frodo = document.getElementsByClassName('hobbit')[0];
+    frodo.appendChild('ring');
+  }
+  keepItSecretKeepItSafe();
+
   makeBuddies: function(buddies) {
     // create an aside tag
+    var sideTag - document.createElement('asside');
     // display an unordered list of buddies in the aside
+    var buddiesList
     // insert your aside before rivendell
   },
   beautifulStranger: function() {
