@@ -18,18 +18,21 @@ var fellowship = {
   ],
 
     // create a section tag with an id of middle-earth
+    // add each land as an article tag
+    // inside each article tag include an h1 with the name of the land
+    // append middle-earth to your document body
+
   makeMiddleEarth: function(lands) {
     console.log(lands);
     var section = document.createElement("section");
     section.setAttribute("id", "middle-earth");
-    for (i = 0; i <fellowship.lands.length; i++) {
-
-
+    for (var i = 0; i < fellowship.lands.length; i++) {
+      var article = document.createElement("article");
+      var h1 = document.createElement("h1");
+      h1.textContent = fellowship.lands[i];
+      article.appendChild(h1);
+      document.getElementById("middle-earth").appendChild(article);
     }
-
-    // add each land as an article tag
-    // inside each article tag include an h1 with the name of the land
-    // append middle-earth to your document body
   },
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
