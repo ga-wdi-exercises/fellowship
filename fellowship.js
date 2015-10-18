@@ -75,12 +75,27 @@ var fellowship = {
     strider.textContent = "Aragon";
   }
   beautifulStranger();
-  
+
   forgeTheFellowShip: function() {
-    // move the hobbits and the buddies to Rivendell
-    // create a new div called 'the-fellowship'
-    var div = document.createElement('the-fellowship');
-    // add each hobbit and buddy one at a time to 'the-fellowship'
-    // after each character is added make an alert that they have joined your party
+  var theFellowship = document.createElement('div');
+    theFellowship.id = 'the-fellowship';
+    theFellowship.appendChild(document.createElement('ul'));
+
+  var hobbitsList = document. getElementById('the-ring').parentNode.parentNode;
+  var hobbitCount - hobbitList.childElementCount;
+  for (var i - 0; i < hobbitCount; i++) {
+    var hobbit = hobbitList.childNodes[0];
+    theFellowship.children[0].appendChild(hobbit);
+    alert(hobbit.txtContent + "has joined the party");
   }
+var buddies = document.getElementsByTagName('aside') [0].children[0].children;
+var buddyCount = buddies.length;
+for (var j =0; j < buddyCount; j++) {
+var buddy = buddies[0];
+theFellowship.children[0].appendChild(buddy);
+alert(buddy.txtContent + "has joined the party")
 }
+var rivendell = document.getElementsByTagName('article')[1];
+rivendell.appendChild(thefellowship);
+}
+forgeTheFellowShip();
