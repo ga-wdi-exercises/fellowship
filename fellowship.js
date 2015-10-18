@@ -16,9 +16,17 @@ var fellowship = {
   lands: [
     "The Shire", "Rivendell", "Mordor"
   ],
-  makeMiddleEarth: function(lands) {
-    console.log(lands)
+
     // create a section tag with an id of middle-earth
+  makeMiddleEarth: function(lands) {
+    console.log(lands);
+    var section = document.createElement("section");
+    section.setAttribute("id", "middle-earth");
+    for (i = 0; i <fellowship.lands.length; i++) {
+
+
+    }
+
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
     // append middle-earth to your document body
