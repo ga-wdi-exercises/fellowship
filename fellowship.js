@@ -21,7 +21,6 @@ var fellowship = {
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
     // append middle-earth to your document body
-
   makeMiddleEarth: function(lands) {
     console.log(lands);
     var section = document.createElement("section");
@@ -45,8 +44,8 @@ var fellowship = {
       ul.appendChild(li);
     }
     document.body.appendChild(ul);
-    var shire = document.querySelector("h1");
-    shire.appendChild(ul);
+    var firstArt = document.querySelector("article")
+    firstArt.appendChild(ul); 
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
@@ -84,7 +83,7 @@ var fellowship = {
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
     var hobbits = document.querySelectorAll("ul")[0]
-    
+
   }
 };
 
