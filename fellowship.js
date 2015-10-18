@@ -1,26 +1,29 @@
 // Dramatis Personae
+
 var fellowship = {
   hobbits: [
     "Frodo Baggins",
     "Samwise 'Sam' Gamgee",
     "Meriadoc \"Merry\" Brandybuck",
     "Peregrin 'Pippin' Took"
-  ],
+  ];
   buddies: [
     "Gandalf the Grey",
     "Legolas",
     "Gimli",
     "Strider",
     "Boromir"
-  ],
-  lands: [
-    "The Shire", "Rivendell", "Mordor"
-  ],
+  ];
+
+  var lands = ["The Shire", "Rivendell", "Mordor"];
+
   makeMiddleEarth: function(lands) {
-    console.log(lands)
-      // create a section tag with an id of middle-earth
-      // add each land as an article tag
+    var middleEarth = document.createElement('section');
+      function myFunction(){
+        var x = getElementById('middle-earth');
+      }
       // inside each article tag include an h1 with the name of the land
+      prompt("<atricle><h1>The Shire</h1></atricle>" "<article ><h1>Rivendellh</article>h1> " "</article><h1>Mordor</h1></article>")
       // append middle-earth to your document body
   },
   makeHobbits: function(hobbits) {
