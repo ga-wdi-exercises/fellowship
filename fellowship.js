@@ -18,12 +18,20 @@ var fellowship = {
   ],
   makeMiddleEarth: function(lands) {
     console.log(lands)
-    // create a section tag with an id of middle-earth
-    // add each land as an article tag
-    // inside each article tag include an h1 with the name of the land
-    // append middle-earth to your document body
+      for (i = 0; i < lands.length; i++) {
+        console.log(lands[i]);
+        var newArticle = document.createElement("article");
+        newArticle.innerHTML = "<h1>" + lands[i] + "</h1>";
+        document.body.appendChild(newArticle);
   },
+
   makeHobbits: function(hobbits) {
+    console.log(hobbits)
+      for (i = 0; i < hobbits.length; i++) {
+        console.log(hobbits[i]);
+        var newUl = document.createElement("article");
+        newArticle.innerHTML = "<li>" + hobbits[i] + "</li>";
+        document.body.appendChild(newArticle);
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
   },
