@@ -1,4 +1,16 @@
 // Dramatis Personae
+// var yesThisISAnArray={
+//   keepIt: function() {
+//     var t = document.createTextNode("Hello World");
+//     document.body.appendChild(t);
+//     var node = document.createElement("LI");
+//     var textnode = document.createTextNode("Water");
+//     node.appendChild(textnode);
+//     document.getElementById("middle_earth").appendChild(node);
+//   }
+// }
+
+
 var fellowship = {
   hobbits: [
     "Frodo Baggins",
@@ -17,7 +29,17 @@ var fellowship = {
     "The Shire", "Rivendell", "Mordor"
   ],
   makeMiddleEarth: function(lands) {
-    console.log(lands)
+    console.log(lands);
+    var nodeTitle = document.createTextNode("We're making middle earth ya hobbits");
+    document.getElementById("middle_earth").appendChild(nodeTitle);
+    for(var i=0; i<fellowship.lands.length; i++){
+      var fellowshipLand = fellowship.lands[i];
+      var landsNode = document.createElement("h1");
+      var landsTextNode = document.createTextNode(fellowshipLand);
+      landsNode.appendChild(landsTextNode);
+      document.getElementById("middle_earth").appendChild(landsNode);
+    }
+
     // create a section tag with an id of middle-earth
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
@@ -32,6 +54,15 @@ var fellowship = {
     // add the ring as a child of Frodo
   },
   makeBuddies: function(buddies) {
+
+    // vvvv code below is the code I copied when Josh was asking Adrian questions
+    //   var newAside = document.createElement("aside");
+    //   newAside.innerHTML = "<ul>" + "</ul>"
+    //   for (i=0; i< buddies.lenght; i++){
+    //   var newString = document.createElement("li");
+    //   newstring.innerHTML = buddies[i];
+    //   newAside.innerHTML.
+    // }
     // create an aside tag
     // display an unordered list of buddies in the aside
     // insert your aside before rivendell
@@ -45,4 +76,4 @@ var fellowship = {
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
   }
-}
+};
