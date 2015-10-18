@@ -70,8 +70,12 @@ var fellowship = {
   }
   makeBuddies(buddies);
   beautifulStranger: function() {
-    // change the buddy 'Strider' textnode to "Aragorn"
-  },
+    var buddies = document.getElementsByTagName('aside') [0].getElementsByTagName('li')
+    var strider = buddies[3];
+    strider.textContent = "Aragon";
+  }
+  beautifulStranger();
+  
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
     // create a new div called 'the-fellowship'
