@@ -75,11 +75,24 @@ var fellowship = {
   },
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
+    var strider = document.getElementsByTagName("ul")[1].childNodes[3];
+    strider.textContent = "Aragorn"
   },
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
     // create a new div called 'the-fellowship'
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
+    var hobbits = document.querySelectorAll("ul")[0]
+    
   }
-}
+};
+
+makeMiddleEarth(lands);
+makeHobbits(hobbits);
+keepItSecretKeepItSafe();
+makeBuddies(buddies);
+beautifulStranger();
+
+// Why does makeMiddleEarth have parameters if they are not defined/used in the function?
+// How do I get rid of the empty strings that are in the Mordor h1?
