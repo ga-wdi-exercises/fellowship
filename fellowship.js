@@ -49,6 +49,10 @@ var fellowship = {
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
     // add the ring as a child of Frodo
+    var div = document.createElement("div");
+    div.id = "the-ring";
+    var frodo = document.getElementsByClassName("hobbit")[0];
+    frodo.appendChild(div);
   },
   makeBuddies: function(buddies) {
     // create an aside tag
