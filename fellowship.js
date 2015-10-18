@@ -45,6 +45,8 @@ var fellowship = {
       ul.appendChild(li);
     }
     document.body.appendChild(ul);
+    var shire = document.querySelector("h1");
+    shire.appendChild(ul);
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
@@ -58,6 +60,18 @@ var fellowship = {
     // create an aside tag
     // display an unordered list of buddies in the aside
     // insert your aside before rivendell
+    var aside = document.createElement("aside");
+    var ul = document.createElement("ul");
+    for (var i = 0; i < fellowship.buddies[i]; i++) {
+      var li = document.createElement("li");
+      li.textContent = fellowship.buddies[i];
+      ul.appendChild(li)
+    }
+    aside.appendChild(ul);
+    var parentArticle = document.querySelectorAll("article")[1];
+    var rivendell = document.querySelectorAll("h1")[1];
+    parentArticle.insertBefore(aside, rivendell);
+
   },
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
