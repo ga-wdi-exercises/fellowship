@@ -19,11 +19,15 @@ var fellowship = {
 
   makeMiddleEarth: function(lands) {
     var middleEarth = document.createElement('section');
-      function myFunction(){
-        var x = getElementById('middle-earth');
+      middleEarth.id = "middle-earth"
+      for (var i = 0; i < lands.length; i++){
+        var articleTag = document.createElement('article');
+        var h1Tag = document.createElement('h1');
+        var h1Tag = 
+      }
       }
       // inside each article tag include an h1 with the name of the land
-      prompt("<atricle><h1>The Shire</h1></atricle>" "<article ><h1>Rivendellh</article>h1> " "</article><h1>Mordor</h1></article>")
+
       // append middle-earth to your document body
   },
   makeHobbits: function(hobbits) {
