@@ -35,34 +35,40 @@ var fellowship = {
   makeHobbits: function(hobbits) {
     var hobbitsList = document.createElement('ul')
       // display an unordered list of hobbits in the shire
-    for (var i=0;  i< hobbits.length; i++){
+    for (var i = 0; i < hobbits.length; i++) {
       // give each hobbit a class of hobbit
       var hobbit = document.createElement('li');
       hobbit.className = "hobbit";
       hobbitsList.appendChild(hobbit)
+    }
+    var shire = document.getElementsByTagName('article')[0];
+    shire.appendChild(hobbitsList);
   }
-  var shire =document.getElementsByTagName('article') [0];
-  shire.appendChild(hobbitsList);
-}
-makeHobbits (hibbits);
+  makeHobbits(hibbits);
 
 
   keepItSecretKeepItSafe: function() {
-  
-var ring = document.createElement('div');
-ring.id ="the-ring";
+
+    var ring = document.createElement('div');
+    ring.id = "the-ring";
     var frodo = document.getElementsByClassName('hobbit')[0];
     frodo.appendChild('ring');
   }
   keepItSecretKeepItSafe();
 
   makeBuddies: function(buddies) {
-    // create an aside tag
-    var sideTag - document.createElement('asside');
-    // display an unordered list of buddies in the aside
-    var buddiesList
-    // insert your aside before rivendell
-  },
+    var asideTag - document.createElement('asside');
+    var buddiesList - document.createElement('ul')
+    for (var i = 0; i < buddies.length; i++) {
+      var buddy - document.createElement('li');
+      buddy.textContent - buddies [i];
+      buddiesList.appendChild(buddy);
+    }
+  asideTag.appendChild(buddiesList);
+  var rivendell = document.getElementsByTagName('aarticle')[1];
+  rivendell.parentNode.insertBefore(asideTag, rivendell);
+  }
+  makeBuddies(buddies);
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
   },
