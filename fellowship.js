@@ -19,32 +19,45 @@ var fellowship = {
     "Mordor"
   ],
   makeMiddleEarth: function(lands) {
-    console.log(lands);
+    // console.log(lands);
     // create a section tag with an id of middle-earth
-    var sectionElement = document.createElement("section");
-    sectionElement.id = "middle-earth";
-    document.body.appendChild(sectionElement);
+    var sectionElement = document.querySelector("section");
+
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
 
-    for (var i = 0; i < fellowship.lands.length; i++) {
+    for (var i = 0; i < lands.length; i++) {
       var articleElement = document.createElement("article");
       var h1Element = document.createElement('H1');
-      h1Element.appendChild(articleElement);
       h1Element.textContent = lands[i];
-
+      articleElement.appendChild(h1Element);
+      // console.log(articleElement);
+      sectionElement.appendChild(articleElement);
     // append middle-earth to your document body
-    document.body.appendChild(middle-earth);
     }
+    document.body.appendChild(sectionElement);
   },
+
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
-    var listofHobbits = document.createElement(ul);
+    var hobbitsList = document.createElement('ul');
     // give each hobbit a class of hobbit
-
+    for (var i = 0; i < hobbits.length; i++) {
+      var hobbit = document.createElement('li');
+      hobbit.textContent = hobbits[i];
+      hobbit.className = "hobbit";
+      hobbitsList.appendChild(hobbit);
+    }
+    var shire = document.getElementsByTagName("article")[0];
+    // console.log(shire);
+    shire.appendChild(hobbitsList);
   },
+
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
+    var divElement = document.createElement("div");
+    divElement.id = "the-ring";
+    console.log(divElement);
     // add the ring as a child of Frodo
   },
   makeBuddies: function(buddies) {
@@ -62,3 +75,4 @@ var fellowship = {
     // after each character is added make an alert that they have joined your party
   }
 };
+fellowship.makeMiddleEarth(fellowship.lands);
