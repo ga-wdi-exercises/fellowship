@@ -45,7 +45,7 @@ var fellowship = {
     }
     document.body.appendChild(ul);
     var firstArt = document.querySelector("article")
-    firstArt.appendChild(ul); 
+    firstArt.appendChild(ul);
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
@@ -82,16 +82,54 @@ var fellowship = {
     // create a new div called 'the-fellowship'
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
-    var hobbits = document.querySelectorAll("ul")[0]
 
-  }
-};
+    // did this to get the hobbits ul
+    var hobbits = document.querySelectorAll("ul")[0];
+    var rivendell = document.querySelectorAll("article")[1]
+    rivendell.appendChild(hobbits);
+    var buddies = document.querySelectorAll("ul")[0]
+    rivendell.appendChild(buddies);
 
-makeMiddleEarth(lands);
-makeHobbits(hobbits);
-keepItSecretKeepItSafe();
-makeBuddies(buddies);
-beautifulStranger();
+    var div = document.createElement("div");
+    div.id = "the-fellowship";
+    div.appendChild(document.createElement("ul"));
+
+  // did this to get the hobbits ul with li as 4 children.
+    var hobbits = document.querySelectorAll("ul")[0].childNodes;
+    for (var i = 0; i < hobbits.length + 1; i++) {
+      var i = 0;
+      alert(hobbits[i].textContent + " has joined your party.");
+      div.children[0].appendChild(hobbits[i]);
+    }
+
+    var buddies = document.querySelectorAll("ul")[1].childNodes;
+    for (var i = 0; i < buddies.length + 1; i++) {
+      var i = 0;
+      alert(buddies[i].textContent + " has joined your party.");
+      div.children[0].appendChild(buddies[i]);
+    }
+
+    // Alternate way:
+    // var hobbits = document.querySelectorAll("ul")[0].childNodes;
+    // while (hobbits.length > 0) {
+    //   var hobbit = hobbits[0];
+    //   alert(hobbit.textContent + " has joined your party.");
+    //   div.children[0].appendChild(hobbit);
+    // }
+
+  } // ends forgeTheFellowship
+} // ends fellowship object
+
+fellowship.makeMiddleEarth(fellowship.lands);
+fellowship.makeHobbits(fellowship.hobbits);
+fellowship.keepItSecretKeepItSafe();
+fellowship.makeBuddies(fellowship.buddies);
+fellowship.beautifulStranger();
+fellowship.forgeTheFellowShip();
+
+
+
+
 
 // Why does makeMiddleEarth have parameters if they are not defined/used in the function?
 // How do I get rid of the empty strings that are in the Mordor h1?
