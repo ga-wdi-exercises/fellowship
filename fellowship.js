@@ -82,15 +82,25 @@ var fellowship = {
     var rivendell = document.querySelectorAll("article")[1].children[0];
     rivendell.appendChild(hobbitsArray);
     rivendell.appendChild(buddiesArray);
-    // create a new div called 'the-fellowship'
+    // // create a new div called 'the-fellowship'
     var theFellowship = document.createElement("div");
     theFellowship.id = "the-fellowship";
+    theFellowship.appendChild(document.createElement('ul'));
+    theFellowship.appendChild(document.createElement('ul'));
     document.body.appendChild(theFellowship);
-    test = document.querySelectorAll(".hobbit")[0].parentNode;
-    console.log(test.length);
-    // add each hobbit and buddy one at a time to 'the-fellowship'
-    for (i = 0; i < test.length; i++) {
-      theFellowship.appendChild(test);
+
+    // // add each hobbit and buddy one at a time to 'the-fellowship'
+    for (i = 0; i < fellowship.hobbits.length; i++) {
+      var newLi = document.createElement("li");
+      newLi.innerHTML = fellowship.hobbits[i];
+      theFellowship.children[0].appendChild(newLi);
+      alert(newLi.textContent + " has joined the party");
+    }
+    for (i = 0; i < fellowship.buddies.length; i++) {
+      var newLi2 = document.createElement("li");
+      newLi2.innerHTML = fellowship.buddies[i];
+      theFellowship.children[1].appendChild(newLi2);
+      alert(newLi2.textContent + " has joined the party");
     }
 
     // after each character is added make an alert that they have joined your party
