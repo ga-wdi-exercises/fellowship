@@ -85,21 +85,38 @@ var fellowship = {
     var buddies = document.getElementById('Gimli').parentNode;
     rivendell.appendChild(hobbits);
     rivendell.appendChild(buddies);
+        // move the hobbits and the buddies to Rivendell
+
     var div = document.createElement('div');
     div.id='the-fellowship';
     rivendell.appendChild(div);
+    // create a new div called 'the-fellowship'
+    //append div to rivendell
+
+    var ul = document.createElement('ul');
+    div.appendChild(ul);
+    //add empty ul to div 'the-fellowship'
+    //(this will house all the li's of our party)
+
     var theFellowship = document.getElementById('the-fellowship');
     for (var i in fellowship.buddies){
-      theFellowship.appendChild(fellowship.buddies[i]);
+      var buddy= document.getElementById(fellowship.buddies[i]);
+      ul.appendChild(buddy);
       alert(fellowship.buddies[i] + ' has joined your party!');
     }
     for (var a in fellowship.hobbits){
-      theFellowship.appendChild(fellowship.hobbits[a]);
-      alert(fellowship.hobbits[i] + ' has joined your party!');
+      var hobbit = document.getElementById(fellowship.hobbits[a]);
+      ul.appendChild(hobbit);
+      alert(fellowship.hobbits[a] + ' has joined your party!');
     }
-    // move the hobbits and the buddies to Rivendell
-    // create a new div called 'the-fellowship'
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
   }
 };
+
+fellowship.makeMiddleEarth(fellowship.lands);
+fellowship.makeHobbits(fellowship.hobbits);
+fellowship.keepItSecretKeepItSafe();
+fellowship.makeBuddies(fellowship.buddies);
+fellowship.beautifulStranger();
+fellowship.forgeTheFellowShip();
