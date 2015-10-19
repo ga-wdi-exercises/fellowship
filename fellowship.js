@@ -18,7 +18,7 @@ lands: [
   ],
 makeMiddleEarth: function(lands){
   console.log(lands);
-  var mid=document.createElement('section');
+  var mid = document.createElement('section');
   mid.setAttribute('class','test');
   mid.setAttribute('id','middle-earth');
   for (var i = 0; i < lands.length; i+=1){
@@ -50,29 +50,50 @@ makeMiddleEarth: function(lands){
     }
     var locateShire = document.getElementById('The Shire');
     locateShire.appendChild(liveInShire);
-  }
+  },
+
+
+//     // display an unordered list of hobbits in the shire
+//     // give each hobbit a class of hobbit
+
+  keepItSecretKeepItSafe: function() {
+    console.log('ring');
+    var ring = document.createElement('div');
+    ring.setAttribute('id','ring');
+    var fro = document.getElementsByTagName('li')[0];
+    fro.appendChild(ring);
+    // create a div with an id of 'the-ring'
+    // add the ring as a child of Frodo
+  },
+
+  makeBuddies: function(buddies) {
+    var buds = document.createElement('aside');
+    var budList = document.createElement('ul');
+    buds.appendChild(budList);
+    for (var i = 0; i < buddies.length; i++){
+      var newBuddy = document.createElement('li');
+      budList.appendChild(newBuddy);
+      var friend = document.createTextNode(buddies[i]);
+      newBuddy.appendChild(friend);
+    }
+    var locateShire = document.getElementById('The Shire');
+    locateShire.appendChild(budList);
+    // create an aside tag
+    // display an unordered list of buddies in the aside
+    // insert your aside before rivendell
+  },
+
+  beautifulStranger: function() {
+    var beau = document.getElementsByTagName('li')[7];
+    beau.innerHTML = 'Aragorn';
+//     // change the buddy 'Strider' textnode to "Aragorn"
+  },
 };
 fellowship.makeMiddleEarth(fellowship.lands);
 fellowship.makeHobbits(fellowship.hobbits);
-
-  //   }
-
-  // },
-//     // display an unordered list of hobbits in the shire
-//     // give each hobbit a class of hobbit
-//   },
-//   keepItSecretKeepItSafe: function() {
-//     // create a div with an id of 'the-ring'
-//     // add the ring as a child of Frodo
-//   },
-//   makeBuddies: function(buddies) {
-//     // create an aside tag
-//     // display an unordered list of buddies in the aside
-//     // insert your aside before rivendell
-//   },
-//   beautifulStranger: function() {
-//     // change the buddy 'Strider' textnode to "Aragorn"
-//   },
+fellowship.keepItSecretKeepItSafe();
+fellowship.makeBuddies(fellowship.buddies);
+fellowship.beautifulStranger();
 //   forgeTheFellowShip: function() {
 //     // move the hobbits and the buddies to Rivendell
 //     // create a new div called 'the-fellowship'
