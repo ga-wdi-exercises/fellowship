@@ -41,20 +41,27 @@ var fellowship = {
     }
   },
   makeHobbits: function(hobbits) {
+    //prints list of all of the hobbits to the console
     console.log(hobbits);
-    var hobbitTitleNode = document.createElement("ul");
-    var hobbitTitle = document.createTextNode("Callin all the hobbits");
-    hobbitTitleNode.appendChild(hobbitTitle);
-    document.getElementById("middle_earth").appendChild(hobbitTitleNode);
-    for(var i=0; i<fellowship.hobbits.length; i++){
-      var fellowshipHobbits = fellowship.hobbits[i];
-      var hobbitsNode = document.createElement("li");
-      var hobbitsThing = document.getElementById("middle_earth", "ul").classList.add(i);
-      var hobbitsTextNode = document.createTextNode(fellowshipHobbits);
-      hobbitsNode.appendChild(hobbitsTextNode);
 
-      document.getElementById("middle_earth").appendChild(hobbitsNode);
+    //Setting up variables
+    //Creating a UL list, naming it hobbitsList
+    var hobbitsList = document.createElement("ul");
+
+    //For every hobbit, create a list item with their name
+    for(var i=0; i<hobbits.length; i++){
+      //create a list item "hobbitsListItem" inside the <ul> list "hobbitsList"
+      var hobbitsListItem = document.createElement("li");
+      //Creating an individualized class name
+      var hobbitsText = hobbitsListItem.textContent
+      hobbitsText = fellowship.hobbits[i];
+      //creating the textContent
+      hobbitsListItem.textContent = fellowship.hobbits[i];
+      //appending stuff
+      hobbitsListItem.setAttribute("class", hobbitsText);
+      hobbitsList.appendChild(hobbitsListItem);
     }
+    document.body.appendChild(hobbitsList);
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
   },
