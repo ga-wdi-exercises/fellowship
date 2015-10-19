@@ -22,11 +22,23 @@ var fellowship = {
 
     console.log(lands)
 
-    document.createElement("SECTION").id="Middle-Earth";
+    var mkSection = document.createElement("section");
+    var mkTextNodeME = document.createTextNode("Middle-Earth");
+    mkSection.appendChild(mkTextNodeME);
+
+    var mkArticle = document.createElement("a");
+    for (var i = 0; i < fellowship.lands.length; i++) {
+      var mkTextNodeLands = document.createTextNode(fellowship.lands[i]);
+      var mkTextNodeLandsName = document.createTextNode("<h1>" + fellowship.lands[i]) + "</h1>";
+    }
+    //mkArticle.appendChild(mkTextNodeLands).appendChild(mkTextNodeLandsName)
+    document.body.appendChild(document.getElementById("Middle-Earth"));
+
+    /*document.createElement("SECTION").id="Middle-Earth";
       // create a section tag with an id of middle-earth
     var a = document.createElement("ARTICLE");
     a.id = fellowship.lands[0];
-    getElementById(fellowship.lands[0]).innerHTML ='<h1>The Shire</h1>';
+    document.getElementById(fellowship.lands[0]).innerHTML ='<h1>The Shire</h1>';
     document.getElementById("Middle-Earth").appendChild(document.getElementById(fellowship.lands[0]));
     a.id = fellowship.lands[1];
     getElementById(fellowship.lands[1]).innerHTML = '<h1>Rivendell</h1>';
@@ -37,7 +49,7 @@ var fellowship = {
       // add each land as an article tag
       // inside each article tag include an h1 with the name of the land
       document.body.appendChild.getElementById("Middle-Earth");
-        // append middle-earth to your document body
+        // append middle-earth to your document body*/
   },
 
   makeHobbits: function(hobbits) {
@@ -73,7 +85,7 @@ var fellowship = {
   },
 
   forgeTheFellowShip: function() {
-    append(document.getElementById(fellowship.lands[1]), document.getElementsByName("aside"));
+    document.append(document.getElementById(fellowship.lands[1]), document.getElementsByName("aside"));
     append(document.getElementById(fellowship.lands[1]), document.getElementById("Hobbits"));
     // move the hobbits and the buddies to Rivendell
     document.createElement("div").textnode='the-fellowship';
