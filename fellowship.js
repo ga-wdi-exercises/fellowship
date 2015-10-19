@@ -26,7 +26,7 @@ var fellowship = {
         fellowship.lands.length; i++) {
         var newArticle = document.createElement('article')
         var h1Tag.textContent = lands[i];
-        articleTag.appendChild(h1Tag);
+        articleTag.appendChild(h1Tag)
         middleEarth.appendChild(newArticle)
       }
       // inside each article tag include an h1 with the name of the land
@@ -97,7 +97,15 @@ forgeTheFellowShip: function() {
     +
     var newMember = document.createElement('h1') + newMember.setAttribute('id', fellowship.hobbits[i]); + div.appendChild(newMember); + alert(fellowship.hobbits[i] + ' has joined the fellowship!') +
   }
-}
-}
+};
+};
+
+
+fellowship.makeMiddleEarth(fellowship.lands);
+fellowship.makeHobbits(fellowship.hobbits);
+fellowship.keepItSecretKeepItSafe();
+fellowship.makeBuddies(fellowship.buddies);
+fellowship.beautifulStranger();
+fellowship.forgeTheFellowShip();
 
 // after each character is added make an alert that they have joined your party
