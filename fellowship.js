@@ -36,7 +36,7 @@ var fellowship = {
 
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
-    var theCrew = document.createElement("halflings");
+    var halflings = document.createElement("aside");
     var hobList = document.createElement("ul");
     for (var j = 0; j < hobbits.length; j++) {
       var hobbit = document.createElement("li");
@@ -46,8 +46,10 @@ var fellowship = {
       hobList.appendChild(hobbit);
     }
     halflings.appendChild(hobList);
-    var shireChillin = document.getElementsByClassName("article")[0];
-    console.log(shireChillin);
+
+    var shireChillin = document.getElementsByTagName("article")[1];
+    console.log(halflings);
+    shireChillin.parentNode.insertBefore(halflings, shireChillin);
 
   },
 
@@ -55,6 +57,7 @@ var fellowship = {
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
     var theRing = document.createElement("div");
+    theRing.textContent = "**I will corrupt you. -the ring**";
     theRing.id = "the-ring";
     // add the ring as a child of Frodo
     var frodo = document.getElementsByClassName("hobbit")[0];
@@ -86,15 +89,19 @@ var fellowship = {
 
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
+    var theCrewGoes = document.getElementsByTagName("aside")[0];
+    var toRiven = document.getElementsByTagName("article")[2];
+    toRiven.parentNode.insertBefore(theCrewGoes, toRiven);
     // create a new div called 'the-fellowship'
     var theFellowship = document.createElement("div");
     theFellowship.id = "the-fellowship";
-
-    //rivendell.parentNode.insertBefore(asideTag, mordor);
-
-    console.log(document.getElementsByClassName("hobbit")[0]);
-
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
+    var joiner = document.getElementsByTagName("li")[0];
+    while (joiner) {
+      joiner = document.getElementsByTagName("li")[0];
+      theFellowship.appendChild(joiner);
+      alert(joiner.textContent + " has joined the party!");
+    }
   }
 };
