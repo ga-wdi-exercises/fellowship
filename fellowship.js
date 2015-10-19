@@ -22,10 +22,33 @@ var fellowship = {
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
     // append middle-earth to your document body
+    var middleEarth = document.createElement("section");
+    middleEarth.id="middle-earth";
+    var i = 0;
+    while (i<lands.length){
+      var newArticle = document.createElement("article");
+      var newHeading = document.createElement("h1");
+      newHeading.textContent = lands[i];
+      newArticle.appendChild(newHeading);
+      middleEarth.appendChild(newArticle);
+      i++;
+    }
+    document.body.appendChild(middleEarth);
   },
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
+    var ulListOfHobbits = document.createElement('ul');
+    var i = 0;
+    while (i<hobbits.length) {
+      var liListOfHobbits = document.createElement('li');
+      liListOfHobbits.className = "hobbit";
+      liListOfHobbits.textContent = hobbits[i];
+      ulListOfHobbits.appendChild(liListOfHobbits);
+      i++;
+    }
+    var shire = document.getElementbyId('The Shire');
+    shire.appendChild(ulListOfHobbits);
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
@@ -35,6 +58,7 @@ var fellowship = {
     // create an aside tag
     // display an unordered list of buddies in the aside
     // insert your aside before rivendell
+    }
   },
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
