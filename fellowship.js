@@ -82,8 +82,16 @@ var fellowship = {
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
     // create a new div called 'the-fellowship'
-    var theFellowship = document.createElement('div');
-    theFellowship.id="fellowship";
+    var theFellowship = document.createElement("div");
+    theFellowship.textContent = "fellowship";
+    theFellowship.id = "fellowship";
+    theFellowship.appendChild(document.createElement('ul'));
+    document.body.appendChild(theFellowship);
+
+    // var theFellowship = document.createElement('div');
+    // theFellowship.id="fellowship";
+    // fellowship.textContent = "the-fellowship";
+    // theFellowship.appendChild(document.createElement("ul"));
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
     var hobbitMove = document.getElementsByTagName('article')[1];
@@ -92,17 +100,21 @@ var fellowship = {
     var hobbitList = document.getElementById('hobbits');
     hobbitMove.appendChild(hobbitList);
 
-    var list = document.createElement('ul');
-    for (var i=0;i< hobbits.length;i++) {
-      // var hobbit = document.createElement("li");
-      // hobbit.innerText = hobbits[i];
-      // // hobbit.innerHTML = "<li>" + hobbits[i] + "</li>";
-      // list.appendChild(hobbit);
-      theFellowship.appendChild(hobbitList[i]);
-      alert(hobbits[i].textContent + " has joined your party.")
-    }
+    // var list = document.createElement('ul');
+    // for (var i=0;i< hobbits.length;i++) {
+    //   // var hobbit = document.createElement("li");
+    //   // hobbit.innerText = hobbits[i];
+    //   // // hobbit.innerHTML = "<li>" + hobbits[i] + "</li>";
+    //   // list.appendChild(hobbit);
+    //   theFellowship.appendChild(hobbitList[i]);
+    //   alert(hobbits[i].textContent + " has joined your party.")
+    // }
     // var fellowship = document.getElementById('theFellowship');
-
+    var hobbitArray = document.getElementById('theFellowship');
+    for (var i = 0; i < hobbits.length; i++){
+          theFellowship.appendChild(hobbitArray);
+          alert(hobbits[i] + " " + "has joined your party");
+        }
 
     var buddyMove = document.getElementsByTagName('article')[1];
     var buddy = document.querySelectorAll("ul")[0]
