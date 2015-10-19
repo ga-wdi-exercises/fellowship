@@ -17,22 +17,40 @@ var fellowship = {
     "The Shire", "Rivendell", "Mordor"
   ],
   makeMiddleEarth: function(lands) {
-    console.log(lands)
+    $('body').append('<section id="middle-earth">');
     // create a section tag with an id of middle-earth
-    // add each land as an article tag
+    $each(lands, function(idx, value) {
+      $("#middle-earth").append("<article>" + value + "</article>")
+    }
+        // add each land as an article tag
+    $.each(lands, function(idx, value) {
+      $.each('article').append("<h1>" + value + "</h1>")
+    }
+
     // inside each article tag include an h1 with the name of the land
+    makeMiddleEarth(lands);
     // append middle-earth to your document body
   },
   makeHobbits: function(hobbits) {
+    for (i = 0; i<hobbits.length; i++) {
+      document.write('<li>' + value + "</li>")
+    }
     // display an unordered list of hobbits in the shire
+
     // give each hobbit a class of hobbit
   },
   keepItSecretKeepItSafe: function() {
+    $("body").append('<div id="the-ring">');
     // create a div with an id of 'the-ring'
+    document.getElementById('the-ring').appendChild("hobbits[0]");
     // add the ring as a child of Frodo
   },
   makeBuddies: function(buddies) {
+    $.each(baddies,value){
+      $('')
+    }
     // create an aside tag
+    $('body').append('<aside>');
     // display an unordered list of buddies in the aside
     // insert your aside before rivendell
   },
