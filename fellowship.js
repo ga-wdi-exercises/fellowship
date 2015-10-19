@@ -16,8 +16,11 @@ buddies: [
 lands: [
     "The Shire", "Rivendell", "Mordor"
   ],
+  //     // create a section tag with an id of middle-earth
+  //     // add each land as an article tag
+  //     // inside each article tag include an h1 with the name of the land
+  //     // append middle-earth to your document body
 makeMiddleEarth: function(lands){
-  console.log(lands);
   var mid = document.createElement('section');
   mid.setAttribute('class','test');
   mid.setAttribute('id','middle-earth');
@@ -33,13 +36,9 @@ makeMiddleEarth: function(lands){
   document.body.appendChild(mid);
 },
 
-//     // create a section tag with an id of middle-earth
-//     // add each land as an article tag
-//     // inside each article tag include an h1 with the name of the land
-//     // append middle-earth to your document body
-//
+////     // display an unordered list of hobbits in the shire
+//     // give each hobbit a class of hobbit
   makeHobbits: function(hobbits){
-    console.log(hobbits);
     var liveInShire = document.createElement('ul');
     for (var i = 0; i < hobbits.length; i++){
       var newHobbit = document.createElement('li');
@@ -52,20 +51,18 @@ makeMiddleEarth: function(lands){
     locateShire.appendChild(liveInShire);
   },
 
-
-//     // display an unordered list of hobbits in the shire
-//     // give each hobbit a class of hobbit
-
+// create a div with an id of 'the-ring'
+// add the ring as a child of Frodo
   keepItSecretKeepItSafe: function() {
-    console.log('ring');
     var ring = document.createElement('div');
     ring.setAttribute('id','ring');
     var fro = document.getElementsByTagName('li')[0];
     fro.appendChild(ring);
-    // create a div with an id of 'the-ring'
-    // add the ring as a child of Frodo
   },
 
+  // create an aside tag
+  // display an unordered list of buddies in the aside
+  // insert your aside before rivendell
   makeBuddies: function(buddies) {
     var buds = document.createElement('aside');
     var budList = document.createElement('ul');
@@ -78,26 +75,37 @@ makeMiddleEarth: function(lands){
     }
     var locateShire = document.getElementById('The Shire');
     locateShire.appendChild(budList);
-    // create an aside tag
-    // display an unordered list of buddies in the aside
-    // insert your aside before rivendell
   },
 
+//     // change the buddy 'Strider' textnode to "Aragorn"
   beautifulStranger: function() {
     var beau = document.getElementsByTagName('li')[7];
     beau.innerHTML = 'Aragorn';
-//     // change the buddy 'Strider' textnode to "Aragorn"
   },
+
+  // move the hobbits and the buddies to Rivendell
+  // create a new div called 'the-fellowship'
+  // add each hobbit and buddy one at a time to 'the-fellowship'
+  // after each character is added make an alert that they have joined your party
+  forgeTheFellowShip: function() {
+    var firstList = document.getElementsByTagName('ul')[0];
+    var secondList = document.getElementsByTagName('ul')[1];
+    var partyGoers = document.getElementsByTagName('li');
+    var locateRivendell = document.getElementById('Rivendell');
+    locateRivendell.appendChild(firstList);
+    locateRivendell.appendChild(secondList);
+    var fellow = document.createElement('div');
+    fellow.setAttribute('id','fellowship');
+    locateRivendell.appendChild(fellow);
+    for (var i = 0; i < partyGoers.length; i++){
+      var joiningHobbit = partyGoers[i];
+      alert(partyGoers[i].textContent + ' has joined the party. Cheers!');
+    }
+  }
 };
 fellowship.makeMiddleEarth(fellowship.lands);
 fellowship.makeHobbits(fellowship.hobbits);
 fellowship.keepItSecretKeepItSafe();
 fellowship.makeBuddies(fellowship.buddies);
 fellowship.beautifulStranger();
-//   forgeTheFellowShip: function() {
-//     // move the hobbits and the buddies to Rivendell
-//     // create a new div called 'the-fellowship'
-//     // add each hobbit and buddy one at a time to 'the-fellowship'
-//     // after each character is added make an alert that they have joined your party
-//   }
-// }
+fellowship.forgeTheFellowShip();
