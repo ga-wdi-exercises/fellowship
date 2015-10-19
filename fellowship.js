@@ -22,7 +22,7 @@ var  fellowship = {
 }
 
 
-  function makeMiddleEarth(lands) {
+  function makeMiddleEarth(fellowship) {
     console.log(fellowship.lands)
     // create a section tag with an id of middle-earth
     var middleEarth = document.createElement("section");
@@ -41,9 +41,7 @@ var  fellowship = {
     document.body.appendChild(middleEarth);
 }
 
-makeMiddleEarth(fellowship);
-
-  function makeHobbits(hobbits) {
+  function makeHobbits(fellowship) {
     var uList = document.createElement('ul');
     // display an unordered list of hobbits in the shire
     for (var i = 0; i < fellowship.hobbits.length; i++) {
@@ -57,8 +55,6 @@ makeMiddleEarth(fellowship);
 
   }
 
-  makeHobbits(fellowship);
-
   function keepItSecretKeepItSafe() {
     // create a div with an id of 'the-ring'
     var theRing = document.createElement('div');
@@ -67,7 +63,6 @@ makeMiddleEarth(fellowship);
     document.getElementsByClassName('hobbit')[0].appendChild(theRing);
 
   }
-  keepItSecretKeepItSafe();
 
 
   function makeBuddies(fellowship) {
@@ -88,7 +83,6 @@ makeMiddleEarth(fellowship);
     var rivendell = landsOnPage[1];
     document.getElementById('middle-earth').insertBefore(buddies,rivendell);
   }
-  makeBuddies(fellowship);
 
   function beautifulStranger() {
     // change the buddy 'Strider' textnode to "Aragorn"
@@ -96,17 +90,60 @@ makeMiddleEarth(fellowship);
     buddies[3].textContent = "Aragorn";
 
   }
-  beautifulStranger();
 
-  function forgeTheFellowShip() {
+  function forgeTheFellowShip(fellowship) {
     // move the hobbits and the buddies to Rivendell
     var middleEarth = document.body.childNodes[4].childNodes;
     var hobbitsChild = middleEarth[0];
-
-    var buddies = middleEarth.removeChild[1];
-
+    var characters = document.getElementsByTagName('ul');
+    var hobbitParent = characters[0].parentNode;
+    var landsOnPage = document.getElementsByTagName('article');
+    var rivendell = landsOnPage[1];
+    var hobbits = hobbitParent.removeChild(characters[0]);
+    rivendell.appendChild(hobbits);
+    // var middleEarth = document.body.childNodes[5].childNodes;
+    var buddies = document.getElementsByTagName('aside');
+    rivendell.appendChild(buddies[0]);
     // create a new div called 'the-fellowship'
+    var theFellowship = document.createElement('div');
+    theFellowship.id = "the-fellowship";
+    theFellowship.appendChild(document.createElement('ul'));
+
     // add each hobbit and buddy one at a time to 'the-fellowship'
-    // after each character is added make an alert that they have joined your party
+    for (i = 0; i < fellowship.hobbits.length; i++) {
+      var hobbitName = fellowship.hobbits[i];
+      theFellowship.appendChild(characters[0].firstChild);
+      // after each character is added make an alert that they have joined your party
+      alert("Hooray! " + hobbitName + " has joined your party!");
+    }
+
+    for (i = 0; i < fellowship.buddies.length; i++) {
+      var buddyName = fellowship.buddies[i];
+      theFellowship.appendChild(characters[1].firstChild);
+      alert("Hooray! " + buddyName + " has joined your party!");
+    }
+    console.log(theFellowship);
   }
+
+  function theFellowshipOfTheRing(fellowship) {
+    makeMiddleEarth(fellowship);
+    console.log("These are the lands of Middle Earth.");
+
+    makeHobbits(fellowship);
+    console.log("These are the hobbits from The Shire.");
+
+    keepItSecretKeepItSafe();
+    console.log("Frodo must keep the ring secret, and safe.")
+
+    makeBuddies(fellowship);
+    console.log("These are the friends who will help the hobbits on their mission");
+
+    beautifulStranger();
+    console.log("It is revealed that Strider is actually Aragorn son of Arathorn, called Elessar, the Elfstone, Dúnadain, the Rightful King of Gondor. He has a broken sword of legend that must be reforged.");
+
+    forgeTheFellowShip(fellowship);
+    console.log("The Fellowship is formed!")
+  }
+
+  console.log("Call theFellowshipOfTheRing(fellowship) to watch the magic happen.");
 // }
