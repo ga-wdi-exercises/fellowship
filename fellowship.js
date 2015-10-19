@@ -22,11 +22,16 @@ var fellowship = {
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
     // append middle-earth to your document body
+
+    var document.getElementById(('section'));
+    middle-earth.id = "middle-earth";
   },
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
   },
+  var hobbitsList = document.createElement('ul');
+
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
     // add the ring as a child of Frodo
