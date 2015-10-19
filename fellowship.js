@@ -58,6 +58,7 @@ var fellowship = {
 
     var makeDiv = document.createElement('div');
     makeDiv.setAttribute('id', 'the-ring');
+    makeDiv.textContent = "The Ring!!!"
     var frodo = document.getElementsByClassName('hobbit')[0];
     frodo.appendChild(makeDiv);
 
@@ -84,8 +85,36 @@ var fellowship = {
 },
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
+    var rivendell = document.getElementsByTagName('ul')[3].firstChild;
+    rivendell.textContent = "Aragorn";
+
+
   },
   forgeTheFellowShip: function() {
+
+    var hobbits = this.hobbits;
+    var buddies = this.buddies;
+    // this.lands.push(hobbits);
+    // this.lands.push(buddies);
+
+    var makeDiv = document.createElement('div');
+    makeDiv.id = "the-fellowship";
+
+    for (var i = 0, j = 0, length = hobbits.length, length2 = buddies.length; i < length && j < length2; i++) {
+
+      // makeDiv.textConent = buddies[i];
+      var makeP = document.createElement('p')
+      makeP.textContent = hobbits[i];
+      makeDiv.appendChild(makeP);
+      alert(hobbits[i] + " Has joined the party!");
+
+      var makeP2 = document.createElement('p');
+      makeP2.textContent = buddies[i];
+      makeDiv.appendChild(makeP2);
+      alert(buddies[i] + " Has joined the party!");
+  }
+
+    document.body.appendChild(makeDiv);
     // move the hobbits and the buddies to Rivendell
     // create a new div called 'the-fellowship'
     // add each hobbit and buddy one at a time to 'the-fellowship'
