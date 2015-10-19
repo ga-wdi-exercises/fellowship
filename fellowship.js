@@ -91,7 +91,7 @@ var fellowship = {
     var buddyList = getElementById("buddies-list")
     // after each character is added make an alert that they have joined your party
     for (i = 0; i <= allHobbits.length; i++) {
-      
+
     }
     rivendell.appendChild(theFellowship);
   }
@@ -102,6 +102,7 @@ fellowship.keepItSecretKeepItSafe();
 fellowship.makeBuddies();
 fellowship.beautifulStranger();
 
-//for methods: create a variable = method.createElement(thingYouWant)
-//populate the variable (object) with a for loop by calling document.array
+//notes:
+//create a variable = method.createElement(thingYouWant)
+//populate the variable (object) with a for loop
 //then use appendChild to put it in the place you want it to go
