@@ -88,7 +88,14 @@ var fellowship = {
     for (i = 0; i < hobbitsLength; i++){
       var oneHobbit = hobbitsShire[0];
       fellowship.children[0].appendChild(oneHobbit);
-      alert(oneHobbit.textContent + " joined your party!");
+      alert(oneHobbit.textContent + " joined the Fellowship!");
+    }
+    var buddies = document.getElementsByTagName('aside')[0].getElementsByTagName('ul')[0].children;
+    var buddiesLength = buddies.length;
+    for( i = 0; i < buddiesLength; i++){
+      var oneBuddy = buddies[0];
+      fellowship.children[0].appendChild(oneBuddy);
+      alert(oneBuddy.textContent + " joined the Fellowship!");
     }
     // move the hobbits and the buddies to Rivendell
     // create a new div called 'the-fellowship'
