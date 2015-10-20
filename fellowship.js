@@ -1,15 +1,4 @@
 // Dramatis Personae
-// var yesThisISAnArray={
-//   keepIt: function() {
-//     var t = document.createTextNode("Hello World");
-//     document.body.appendChild(t);
-//     var node = document.createElement("LI");
-//     var textnode = document.createTextNode("Water");
-//     node.appendChild(textnode);
-//     document.getElementById("middle_earth").appendChild(node);
-//   }
-// }
-
 
 var fellowship = {
   hobbits: [
@@ -170,5 +159,65 @@ var fellowship = {
     // create a new div called 'the-fellowship'
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
+
+    //Are the Hobbits and Buddies already on the map & in their respective positions?
+    var hobbitsClass = document.getElementsByClassName("hobbits");
+    console.log(hobbitsClass);
+    var buddiesClass = document.getElementsByClassName("buddiesList");
+    console.log(buddiesClass);
+
+    //Are the Hobbits and Buddies already in Rivendell?
+    var hobbitsClassinRivendell = document.getElementsByClassName("hobbitsInRivendell");
+    console.log(hobbitsClassinRivendell);
+    var buddiesClassinRivendell = document.getElementsByClassName("buddiesListInRivendell");
+    console.log(buddiesClassinRivendell);
+
+    //get Rivendell
+    var rivendellID = document.getElementById("Rivendell");
+    console.log(rivendellID);
+
+    //Now, Forge the Fellowship!
+    if ((buddiesClass.length > 0) && (hobbitsClass.length > 0)){
+      // create fellowship div
+      var theFellowshipDiv = document.createElement("div");
+      theFellowshipDiv.setAttribute("class","the-fellowship");
+      // create ul
+      var theFellowshipList = document.createElement("ul");
+      theFellowshipList.setAttribute("id","the-fellowship-list");
+      for (i=0; i < fellowship.buddies.length; i++){
+        var buddieCounted = buddiesClass[0].firstChild.textContent;
+        theFellowshipList.appendChild(buddiesClass[0].firstChild);
+        theFellowshipDiv.appendChild(theFellowshipList);
+        rivendellID.appendChild(theFellowshipDiv);
+        //making the alert that they have joined your party
+        alert(buddieCounted + " has joined your party!");
+      }
+      for (i=0; i < fellowship.hobbits.length; i++){
+        var hobbitsCounted = hobbitsClass[0].firstChild.textContent;
+        theFellowshipList.appendChild(hobbitsClass[0].firstChild);
+        theFellowshipDiv.appendChild(theFellowshipList);
+        rivendellID.appendChild(theFellowshipDiv);
+        alert(hobbitsCounted + " has joined your party!");
+      }
+      rivendellID.appendChild(theFellowshipDiv);
+      alert("The Fellowship has been forged!");
+      hobbitsClass[0].setAttribute("class", "hobbitsInRivendell");
+      buddiesClass[0].setAttribute("class", "buddiesListInRivendell");
+    }
+    else if ((buddiesClassinRivendell.length > 0) &&(hobbitsClassinRivendell.length > 0)){
+      var yesBuddiesAndHobbitsText = document.createTextNode("Buddies and Hobbits are already in Rivendell, so The Fellowship has already been forged");
+      var yesBuddiesAndHobbitsElement = document.createElement("h1");
+      yesBuddiesAndHobbitsElement.appendChild(yesBuddiesAndHobbitsText);
+      document.body.appendChild(yesBuddiesAndHobbitsElement);
+    }
+    else {
+      var noBuddiesAndHobbitsText = document.createTextNode("Buddies and Hobbits are not present, so The Fellowship cannot be forged");
+      var noBuddiesAndHobbitsElement = document.createElement("h1");
+      noBuddiesAndHobbitsElement.appendChild(noBuddiesAndHobbitsText);
+      document.body.appendChild(noBuddiesAndHobbitsElement);
+    }
+
+
+
   }
 };
