@@ -29,9 +29,10 @@ var fellowship = {
     "The Shire", "Rivendell", "Mordor"
   ],
   makeMiddleEarth: function(lands) {
+    //prints list of all of the lands to the console
     console.log(lands);
-    var nodeTitle = document.createTextNode("We're making middle earth ya hobbits");
-    document.getElementById("middle_earth").appendChild(nodeTitle);
+
+    //Meat of the function -- for every land, creates a h1 element
     for(var i=0; i<fellowship.lands.length; i++){
       var fellowshipLand = fellowship.lands[i];
       var landsNode = document.createElement("h1");
@@ -47,13 +48,13 @@ var fellowship = {
     //Setting up variables
     //Creating a UL list, naming it hobbitsList
     var hobbitsList = document.createElement("ul");
-
+    hobbitsList.setAttribute("class", "hobbits");
     //For every hobbit, create a list item with their name
     for(var i=0; i<hobbits.length; i++){
       //create a list item "hobbitsListItem" inside the <ul> list "hobbitsList"
       var hobbitsListItem = document.createElement("li");
       //Creating an individualized class name
-      var hobbitsText = hobbitsListItem.textContent
+      var hobbitsText = hobbitsListItem.textContent;
       hobbitsText = fellowship.hobbits[i];
       //creating the textContent
       hobbitsListItem.textContent = fellowship.hobbits[i];
@@ -66,12 +67,53 @@ var fellowship = {
     // give each hobbit a class of hobbit
   },
   keepItSecretKeepItSafe: function() {
-    var theRing = document.getElementById("middle_earth").classList.add("the-ring") ;
-    document.getElementsByClassName("Frodo Baggins")
-    // create a div with an id of 'the-ring'
-    // add the ring as a child of Frodo
+    // grab list item Frodo from makeHobbits
+    var frodoClass = document.getElementsByClassName("Frodo Baggins");
+    console.log(frodoClass);
+    if (frodoClass.length > 0){
+
+      // create div element with id "the-ring"
+      var theRingDiv = document.createElement("div");
+      theRingDiv.setAttribute("id", "the-ring");
+      //Create text "THE RING" and append text to div
+      var theRingText = document.createTextNode("THE RING");
+      theRingDiv.appendChild(theRingText);
+      //For the first instance of Frodo, attatch div the-ring
+      frodoClass[0].appendChild(theRingDiv);
+    }
+    else {
+      var noHobbitsText = document.createTextNode("No heroes are available to keep it secret or safe");
+      var noHobbitsElement = document.createElement("h1");
+      noHobbitsElement.appendChild(noHobbitsText);
+      document.body.appendChild(noHobbitsElement);
+    }
   },
   makeBuddies: function(buddies) {
+    // create an aside tag
+    // display an unordered list of buddies in the aside
+    // insert your aside before rivendell
+    // var frodoClass = document.getElementsByClassName("Frodo Baggins");
+    // console.log(frodoClass);
+    // if (frodoClass.length > 0){
+    //
+    //   // create div element with id "the-ring"
+    //   var theRingDiv = document.createElement("div");
+    //   theRingDiv.setAttribute("id", "the-ring");
+    //   //Create text "THE RING" and append text to div
+    //   var theRingText = document.createTextNode("THE RING");
+    //   theRingDiv.appendChild(theRingText);
+    //   //For the first instance of Frodo, attatch div the-ring
+    //   frodoClass[0].appendChild(theRingDiv);
+    // }
+    // else {
+    //   var noHobbitsText = document.createTextNode("No heroes are available to keep it secret or safe");
+    //   var noHobbitsElement = document.createElement("h1");
+    //   noHobbitsElement.appendChild(noHobbitsText);
+    //   document.body.appendChild(noHobbitsElement);
+    // }
+
+
+
 
     // vvvv code below is the code I copied when Josh was asking Adrian questions
     //   var newAside = document.createElement("aside");
@@ -81,6 +123,9 @@ var fellowship = {
     //   newstring.innerHTML = buddies[i];
     //   newAside.innerHTML.
     // }
+
+
+
     // create an aside tag
     // display an unordered list of buddies in the aside
     // insert your aside before rivendell
