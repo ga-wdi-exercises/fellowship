@@ -216,8 +216,5 @@ var fellowship = {
       noBuddiesAndHobbitsElement.appendChild(noBuddiesAndHobbitsText);
       document.body.appendChild(noBuddiesAndHobbitsElement);
     }
-
-
-
   }
 };
