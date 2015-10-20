@@ -67,8 +67,10 @@ var fellowship = {
     newList.appendChild(list);
     var textnode = document.createTextNode(fellowship.hobbits[i]);
     list.appendChild(textnode);
-    document.body.appendChild(newList);
+    var shire=document.getElementById('The Shire');
+    shire.appendChild(newList);
     }
+
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
