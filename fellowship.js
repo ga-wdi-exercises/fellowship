@@ -131,6 +131,28 @@ var fellowship = {
   },
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
+    //Is Strider ID present on the page?
+    var striderID = document.getElementById("Strider");
+    console.log(striderID);
+    //Is Aaragon ID present on the page?
+    var aragornID = document.getElementById("Aragorn");
+    console.log(aragornID);
+    if (striderID){
+      striderID.textContent = "Aragorn";
+      striderID.setAttribute("id","Aragorn");
+    }
+    else if(aragornID) {
+      var aragornText = document.createTextNode("Your beautiful stanger has been revealed.");
+      var aragornElement = document.createElement("h1");
+      aragornElement.appendChild(aragornText);
+      document.body.appendChild(aragornElement);
+    }
+    else {
+      var noBuddiesText = document.createTextNode("No buddies are found, so no beutiful strangers can be revealed.");
+      var noBuddiesElement = document.createElement("h1");
+      noBuddiesElement.appendChild(noBuddiesText);
+      document.body.appendChild(noBuddiesElement);
+    }
   },
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
