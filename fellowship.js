@@ -49,25 +49,36 @@ var fellowship = {
   makeHobbits: function(hobbits) {
     //prints list of all of the hobbits to the console
     console.log(hobbits);
-
-    //Setting up variables
-    //Creating a UL list, naming it hobbitsList
-    var hobbitsList = document.createElement("ul");
-    hobbitsList.setAttribute("class", "hobbits");
-    //For every hobbit, create a list item with their name
-    for(var i=0; i<hobbits.length; i++){
-      //create a list item "hobbitsListItem" inside the <ul> list "hobbitsList"
-      var hobbitsListItem = document.createElement("li");
-      //Creating an individualized class name
-      var hobbitsText = hobbitsListItem.textContent;
-      hobbitsText = fellowship.hobbits[i];
-      //creating the textContent
-      hobbitsListItem.textContent = fellowship.hobbits[i];
-      //appending stuff
-      hobbitsListItem.setAttribute("class", hobbitsText);
-      hobbitsList.appendChild(hobbitsListItem);
+    //Is the Shire there?
+    var shireID = document.getElementById("The Shire");
+    console.log(shireID);
+    if (shireID){
+      //Setting up variables
+      //Creating a UL list, naming it hobbitsList
+      var hobbitsList = document.createElement("ul");
+      hobbitsList.setAttribute("class", "hobbits");
+      //For every hobbit, create a list item with their name
+      for(var i=0; i<hobbits.length; i++){
+        //create a list item "hobbitsListItem" inside the <ul> list "hobbitsList"
+        var hobbitsListItem = document.createElement("li");
+        //Creating an individualized class name
+        var hobbitsText = hobbitsListItem.textContent;
+        hobbitsText = fellowship.hobbits[i];
+        //creating the textContent
+        hobbitsListItem.textContent = fellowship.hobbits[i];
+        //appending stuff
+        hobbitsListItem.setAttribute("class", hobbitsText);
+        hobbitsList.appendChild(hobbitsListItem);
+      }
+      shireID.appendChild(hobbitsList);
     }
-    document.body.appendChild(hobbitsList);
+    else {
+      var noShireText = document.createTextNode("No world is found, so no hobbits can be made.");
+      var noShireElement = document.createElement("h1");
+      noShireElement.appendChild(noShireText);
+      document.body.appendChild(noShireElement);
+    }
+
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
   },
