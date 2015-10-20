@@ -61,14 +61,13 @@ var fellowship = {
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
     var newList = document.createElement("ul");
-    document.body.appendChild(newList);
     for(var i=0; i<fellowship.hobbits.length; i++){
     var list = document.createElement("li");
-    var cName= document.createElement("hobbit");
-    list.appendChild(cName);
-    var textnode = document.createTextNode(fellowship.hobbits[i]);
-    cName.appendChild(textnode);
+    list.setAttribute("class", "hobbit");
     newList.appendChild(list);
+    var textnode = document.createTextNode(fellowship.hobbits[i]);
+    list.appendChild(textnode);
+    document.body.appendChild(newList);
     }
   },
   keepItSecretKeepItSafe: function() {
@@ -76,13 +75,8 @@ var fellowship = {
     var newDiv = document.createElement("div");
     newDiv.setAttribute("id", "the-ring");
     // add the ring as a child of Frodo
-    var hobbits = document.getElementsByTagName('hobbit');
-    for(var i=0; i<hobbits.length; i++){
-      var data = hobbits[i].getAttribute('Frodo');
-      console.log(data);
-    }
-    // .appendChild(newDiv);
-    // Frodo.appendChild(newDiv);
+    var hobbits = document.querySelector('li.hobbit');
+    hobbits.appendChild(newDiv);
   },
   makeBuddies: function(buddies) {
     // create an aside tag
@@ -90,31 +84,62 @@ var fellowship = {
     // display an unordered list of buddies in the aside
 
 
-    // var startNode=document.getElementsByTagName('aside').parentNode;
     var newList = document.createElement("ul");
-    newAside.appendChild('newList');
-    var nodeIndication=newAside.parentNode;
-    // startNode.appendChild("newList");
-    // document.body.appendChild('startNode');
-
+    newAside.appendChild(newList);
     for(var i=0; i<fellowship.buddies.length; i++){
      var list = document.createElement("li");
-     nodeIndication.appendChild("list");
+     newList.appendChild(list);
      var textnode = document.createTextNode(fellowship.buddies[i]);
      list.appendChild(textnode);
     }
     // insert your aside before rivendell
-    // var rivenDell= document.getElementById('Rivendell');
-    // rivenDell.parentNode.insertBefore(newAside,rivenDell);
-    document.body.appendChild(nodeIndication);
+    var rivenDell= document.querySelector('#Rivendell');
+
+    rivenDell.parentNode.insertBefore(newAside, rivenDell);
+    // document.body.appendChild(newAside);
+
   },
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
+    var newText=document.createTextNode("Aragorn");
+    var strider=document.getElementsByTagName('li');
+    strider[3].replaceChild(newText, strider[3].firstChild);
   },
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
+    var moveToRivendellH=document.querySelectorAll('li.hobbit');
+    var moveToRivendellB=document.querySelectorAll('aside');
+    var rivenDell= document.querySelector('#Rivendell');
+    for(var i=0; i<moveToRivendellH.length; i++){
+      // rivenDell= document.querySelector('#Rivendell');
+      rivenDell.parentNode.insertBefore(moveToRivendellH[i], rivenDell);
+    }
+    var rivenDell= document.querySelector('#Rivendell');
+    for(var i=0; i<moveToRivendellB.length; i++){
+      // rivenDell= document.querySelector('#Rivendell');
+      rivenDell.parentNode.insertBefore(moveToRivendellB[i], rivenDell);
+    }
+
     // create a new div called 'the-fellowship'
+    var newDiv=document.createElement("div");
+    newDiv.setAttribute('id', 'the-fellowship');
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
+    moveToRivendellH=document.querySelectorAll('li.hobbit');
+    moveToRivendellB=document.querySelectorAll('aside');
+    for(var i=0; i<moveToRivendellH.length; i++){
+      newDiv.appendChild(moveToRivendellH[i]);
+      alert("Hobit"+moveToRivendellH[i]+"joined!");
+    }
+    for(var i=0; i<moveToRivendellB.length; i++){
+      newDiv.appendChild(moveToRivendellB[i]);
+      alert("Buddy"+moveToRivendellB[i]+"joined!");
+
+    }
+    document.body.appendChild(newDiv);
   }
 }
+
+fellowship.makeMiddleEarth()
+fellowship.makeHobbits()
+fellowship.makeBuddies()
