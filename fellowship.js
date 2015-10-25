@@ -1,4 +1,4 @@
-// Dramatis Personae
+
 var fellowship = {
   hobbits: [
     "Frodo Baggins",
