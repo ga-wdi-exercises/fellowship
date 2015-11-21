@@ -19,7 +19,7 @@ function makeMiddleEarth(lands) {
   var middleEarth = $('<section>');
   middleEarth.attr('id', "middle-earth");
 
-  $.each(lands, function(index, land);
+  $.each(lands, function(index, land) {
   var article = $('<article>');
   var h1 = $('<h1>' + land + '</h1>')
   article.append(h1);
@@ -31,7 +31,7 @@ $('body').append(middleEarth);
 makeMiddleEarth(lands);
 
 function makeHobbits(hobbits) {
-  var hobbitslist = $('<ul>');
+  var hobbitsList = $('<ul>');
   $.each(hobbits, function(index, hobbit){
     var li = $('<li>' + hobbit + '</li>');
     li.addClass('hobbit');
@@ -79,7 +79,7 @@ function forgeTheFellowShip() {
   var theFellowship = $('<div>');
   theFellowship.attr('id', 'the-fellowship');
   var fellowshipList = $('<ul>');
-  theFellowship.append(fellowship);
+  theFellowship.append(fellowshipList);
 
   rivendell.append(theFellowship);
 
