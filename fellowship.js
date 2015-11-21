@@ -21,6 +21,11 @@
     middleEart.attr('id', "middle-earth");
 
     $.each(lands, function(index, land);
+      var article = $('<article>');
+      var h1 = $('<h1>' + land + '</h1>');
+      article.append(h1);
+      middleEart.append(article);
+    });
     // create a section tag with an id of middle-earth
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
