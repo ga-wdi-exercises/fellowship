@@ -1,56 +1,98 @@
-// Dramatis Personae
+var hobbits = [
+  "Frodo Baggins",
+  "Samwise 'Sam' Gamgee",
+  "Meriadoc \"Merry\" Brandybuck",
+  "Peregrin 'Pippin' Took"
+];
 
-  var hobbits = [
-    "Frodo Baggins",
-    "Samwise 'Sam' Gamgee",
-    "Meriadoc \"Merry\" Brandybuck",
-    "Peregrin 'Pippin' Took"
-  ];
-  var buddies = [
-    "Gandalf the Grey",
-    "Legolas",
-    "Gimli",
-    "Strider",
-    "Boromir"
-  ];
+var buddies = [
+  "Gandalf the Grey",
+  "Legolas",
+  "Gimli",
+  "Strider",
+  "Boromir"
+];
 
-  var lands = ["The Shire", "Rivendell", "Mordor"];
+var lands = ["The Shire", "Rivendell", "Mordor"];
 
-  function makeMiddleEarth(lands) {
-    var middleEarth = $('<section>');
-    middleEart.attr('id', "middle-earth");
+function makeMiddleEarth(lands) {
+  var middleEarth = $('<section>');
+  middleEarth.attr('id', "middle-earth");
 
-    $.each(lands, function(index, land);
-      var article = $('<article>');
-      var h1 = $('<h1>' + land + '</h1>');
-      article.append(h1);
-      middleEart.append(article);
-    });
-    // create a section tag with an id of middle-earth
-    // add each land as an article tag
-    // inside each article tag include an h1 with the name of the land
-    // append middle-earth to your document body
-  },
-  makeHobbits: function(hobbits) {
-    // display an unordered list of hobbits in the shire
-    // give each hobbit a class of hobbit
-  },
-  keepItSecretKeepItSafe: function() {
-    // create a div with an id of 'the-ring'
-    // add the ring as a child of Frodo
-  },
-  makeBuddies: function(buddies) {
-    // create an aside tag
-    // display an unordered list of buddies in the aside
-    // insert your aside before rivendell
-  },
-  beautifulStranger: function() {
-    // change the buddy 'Strider' textnode to "Aragorn"
-  },
-  forgeTheFellowShip: function() {
-    // move the hobbits and the buddies to Rivendell
-    // create a new div called 'the-fellowship'
-    // add each hobbit and buddy one at a time to 'the-fellowship'
-    // after each character is added make an alert that they have joined your party
-  }
+  $.each(lands, function(index, land);
+  var article = $('<article>');
+  var h1 = $('<h1>' + land + '</h1>')
+  article.append(h1);
+  middleEarth.append(article);
+});
+
+$('body').append(middleEarth);
 }
+makeMiddleEarth(lands);
+
+function makeHobbits(hobbits) {
+  var hobbitslist = $('<ul>');
+  $.each(hobbits, function(index, hobbit){
+    var li = $('<li>' + hobbit + '</li>');
+    li.addClass('hobbit');
+    hobbitsList.append(li);
+  })
+  var shire = $('article').first();
+  shire.append(hobbitsList);
+}
+makeHobbits(hobbits);
+
+function keepItSecretKeepItSafe() {
+  var ring = $('<div>');
+  ring.attr('id', 'ring');
+  var frodo = $('.hobbit').first();
+  frodo.append(ring);
+}
+keepItSecretKeepItSafe();
+
+function makeBuddies(buddies) {
+  var aside = $('<aside>');
+  var buddiesList = $('<ul>');
+  buddiesList.addClass('buddies');
+  $.each(buddies, function(index, buddy){
+    var li = $('<li>' + buddy + '</li>');
+    li.addClass('buddy');
+    if(buddy === "Gandalf the Grey"){
+      li.css('background', 'grey');
+    }
+    buddiesList.append(li);
+  });
+  aside.append(buddiesList);
+  $('article:eq(1)').before(aside);
+}
+makeBuddies(buddies);
+
+function beautifulStranger() {
+  var strider = $('.buddies li:nth-child(3)');
+  strider.text('Aragon');
+}
+beautifulStranger();
+
+function forgeTheFellowShip() {
+  var rivendell = $('article:eq(1)');
+
+  var theFellowship = $('<div>');
+  theFellowship.attr('id', 'the-fellowship');
+  var fellowshipList = $('<ul>');
+  theFellowship.append(fellowship);
+
+  rivendell.append(theFellowship);
+
+  hobbitList = $('.hobbit');
+  $.each(hobbitList, function(index, hobbit){
+    fellowshipList.append(hobbit);
+    console.log(hobbit.textContent + "has joined!")
+  });
+
+  buddyList = $('.buddy');
+  $.each(buddyList, function(index, buddy){
+    fellowshipList.append(buddy);
+    console.log(buddy.textContent + "has joined!")
+  });
+}
+forgeTheFellowShip();
